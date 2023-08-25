@@ -13,27 +13,21 @@ namespace JogoSimplesDeConsole
             public bool EscolhaAtaqueEsp;
             public Random ForcaAtaqueEsp;
             public int QuantBrasoes;
-            public bool TemBrasoes;
+            protected bool TemBrasoes;
 
             public Jogador()
             {
                 Vivo = true;
                 Vida = 150;
-                
                 Atacar = true;
-    
                 EscolhaAtaque = true;
                 ForcaAtaque = new Random();
-    
                 EscolhaAtaqueEsp = false;
                 ForcaAtaqueEsp = new Random();
-    
                 QuantBrasoes = 19;
                 TemBrasoes = true;
             }
-    
         }
-    
         public class Boss
         {
             public string Nome;
@@ -43,24 +37,19 @@ namespace JogoSimplesDeConsole
             public Random ForcaAtaque;
             public int Fases;
             public bool PriFase;
-            public bool SegFase;
+            protected bool SegFase;
 
             public Boss()
             {
                 Nome = "Inimigo";
-    
                 Vida = 300;
                 Vivo = true;
-    
                 Atacar = true;
                 Random ForcaAtaque = new Random();
-    
                 Fases = 2;
                 PriFase = true;
-                SegFase = false;
             }
         }
-    
     
     class Principal
     {
@@ -71,13 +60,13 @@ namespace JogoSimplesDeConsole
             j1.EscolhaAtaqueEsp = false;
             j1.QuantBrasoes -= 2;
     
-            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
     
-            object atq = j1.ForcaAtaque.Next(0, 50);
+            object atq = j1.ForcaAtaque.Next(10, 50);
     
             Console.WriteLine($"Ótimo, você causou {atq} de dano");
             Console.WriteLine($"{boss.Nome} teve a vida reduzida para: {boss.Vida - Convert.ToDouble(atq)}");
-            Console.WriteLine("|-----------------------------------------|");
+            Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         }
         static void SistemaAtaqueEsp(Jogador j1, Boss boss) // Função que define o sistema de ataque especial do jogador
         {
@@ -86,14 +75,14 @@ namespace JogoSimplesDeConsole
             j1.EscolhaAtaqueEsp = true;
             j1.QuantBrasoes -= 4;
     
-            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
     
             object atq = j1.ForcaAtaque.Next(60, 150);
     
             Console.WriteLine($"Ótimo, você causou {atq} de dano");
             Console.WriteLine($"Seus brasões espírituais foram para: {j1.QuantBrasoes}");
             Console.WriteLine($"{boss.Nome} teve a vida reduzida para: {boss.Vida - Convert.ToDouble(atq)}");
-            Console.WriteLine("|-----------------------------------------|");
+            Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
         }
         static void SistemaDefesa(Jogador j1, Boss boss) // Função qye defibe o sistema de defesa do jogador
         {
@@ -103,7 +92,7 @@ namespace JogoSimplesDeConsole
     
             Console.WriteLine($"Você defendeu e sofreu menos do dano total. Você ainda tem {j1.Vida} de vida.");
             Console.WriteLine($"Dano recebido: {atqBoss}");
-            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
     
         }
     
@@ -126,16 +115,16 @@ namespace JogoSimplesDeConsole
             
             Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             Console.WriteLine($"|\tOs atributos do {b1.Nome} são:\t\t|");
-            Console.WriteLine($"|\tVida.....: {j1.Vida}\t\t\t\t|");
+            Console.WriteLine($"|\tVida................: {j1.Vida}\t\t|");
             Console.WriteLine($"|\tForça do ataque.....: 40\t\t| ");
             Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
             
             Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             Console.WriteLine($"|\tSeus atributos são:\t\t\t|");
-            Console.WriteLine($"|\tVida.....: {b1.Vida}\t\t\t\t|");
+            Console.WriteLine($"|\tVida......................: {b1.Vida}\t\t|");
             Console.WriteLine($"|\tQuantidade de brasões.....: {j1.QuantBrasoes}\t\t|");
-            Console.WriteLine($"|\tAtaque.....: 0 - 50\t\t\t|");
-            Console.WriteLine($"|\tAtaque Especial.....: 60 - 150\t\t|");
+            Console.WriteLine($"|\tAtaque....................: 10 - 50\t|");
+            Console.WriteLine($"|\tAtaque Especial...........: 60 - 150\t|");
             Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             
             Console.WriteLine($"{j1.Nome}, a batalha começou, deseja atacar {b1.Nome}?");
